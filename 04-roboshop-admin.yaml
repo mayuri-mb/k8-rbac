@@ -8,3 +8,16 @@ rules:
 - apiGroups: ["*"]  
   resources: ["*"]
   verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: roboshop-cluster-reader
+#permissions  
+rules:
+- apiGroups: [""]  
+  resources: ["persistentvolumes"]
+  verbs: ["get", "watch", "list"]
+- apiGroups: ["storage.k8s.io"]  
+  resources: ["storageclasses"]
+  verbs: ["get", "watch", "list"]  
