@@ -15,10 +15,9 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ---  
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: roboshop-cluster-reader
-  namespace: roboshop
 subjects:
 # You can specify more than one "subject"
 - kind: User
@@ -26,6 +25,6 @@ subjects:
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   # "roleRef" specifies the binding to a Role / ClusterRole
-  kind: Role #this must be Role or ClusterRole
+  kind: ClusterRole #this must be Role or ClusterRole
   name: roboshop-cluster-reader # this must match the name of the Role or ClusterRole you wish to bind to
   apiGroup: rbac.authorization.k8s.io
